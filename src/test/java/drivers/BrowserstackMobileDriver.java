@@ -13,28 +13,21 @@ import java.net.URL;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
 
-    static CredentialsConfig credentialsConfig = ConfigFactory.create(CredentialsConfig.class);
-    static String username = credentialsConfig.username();
-    static String access_key = credentialsConfig.access_key();
-    static String app = credentialsConfig.app();
-    static String device = credentialsConfig.device();
-    static String os_version = credentialsConfig.os_version();
-
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
         // Set your access credentials
-        mutableCapabilities.setCapability("browserstack.user", username);
-        mutableCapabilities.setCapability("browserstack.key", access_key);
+        mutableCapabilities.setCapability("browserstack.user", "bsuser_zB7OhS");
+        mutableCapabilities.setCapability("browserstack.key", "yjW2gs4QfhiTDpfJZgyk");
 
         // Set URL of the application under test
 //        mutableCapabilities.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
-        mutableCapabilities.setCapability("app", app);
+        mutableCapabilities.setCapability("app", "bs://ee714901a6bef9d1429d8afe111b9342ea5bd996");
 
         // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device", device);
-        mutableCapabilities.setCapability("os_version", os_version);
+        mutableCapabilities.setCapability("device", "Google Pixel 3");
+        mutableCapabilities.setCapability("os_version", "9.0");
 
         // Set other BrowserStack capabilities
         mutableCapabilities.setCapability("project", "QA.GURU lesson 12/21");

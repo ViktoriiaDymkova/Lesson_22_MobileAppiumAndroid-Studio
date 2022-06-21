@@ -1,4 +1,4 @@
-package browserstack_samples;//package browserstack_samples;
+package tests.browserastack;//package browserstack_samples;
 //
 //import io.appium.java_client.MobileBy;
 //import io.appium.java_client.android.AndroidDriver;

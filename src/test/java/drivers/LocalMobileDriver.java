@@ -16,14 +16,6 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class LocalMobileDriver implements WebDriverProvider {
 
-    public static URL getAppiumServerUrl() {
-        try {
-            return new URL("http://localhost:4723/wd/hub");
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
         File app = getApp();
@@ -42,7 +34,13 @@ public class LocalMobileDriver implements WebDriverProvider {
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
-
+    public static URL getAppiumServerUrl() {
+        try {
+            return new URL("http://localhost:4723/wd/hub");
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     private File getApp() {
         String appUrl = "https://github.com/wikimedia/apps-android-wikipedia/" +
                 "releases/download/latest/app-alpha-universal-release.apk";

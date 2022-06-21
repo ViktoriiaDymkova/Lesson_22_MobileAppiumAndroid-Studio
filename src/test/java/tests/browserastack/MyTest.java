@@ -1,5 +1,5 @@
 
-package tests;
+package tests.browserastack;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;

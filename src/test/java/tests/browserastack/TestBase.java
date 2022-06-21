@@ -1,4 +1,4 @@
-package tests;
+package tests.browserastack;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
