@@ -1,6 +1,7 @@
 package drivers;
 import com.codeborne.selenide.WebDriverProvider;
-import config.LocalAndroidStudioConfig;
+import config.Credentials;
+import config.LocalConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
@@ -18,12 +19,6 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class LocalMobileDriver implements WebDriverProvider {
 
-    static LocalAndroidStudioConfig localAndroidStudioConfig = ConfigFactory.create(LocalAndroidStudioConfig.class );
-    static String platformName = localAndroidStudioConfig.platformName();
-    static String device = localAndroidStudioConfig.device();
-    static String os_version = localAndroidStudioConfig.os_version();
-    static String localURL = localAndroidStudioConfig.localURL();
-
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
         File app = getApp();
@@ -31,10 +26,10 @@ public class LocalMobileDriver implements WebDriverProvider {
         UiAutomator2Options options = new UiAutomator2Options();
         options.merge(capabilities);
         options.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
-        options.setPlatformName(platformName);
-        options.setDeviceName(device);
+        options.setPlatformName(Credentials.configLocal.platformName());
+        options.setDeviceName(Credentials.configLocal.device());
 //        options.setDeviceName("Pixel 4 API 30");
-        options.setPlatformVersion(os_version);
+        options.setPlatformVersion(Credentials.configLocal.os_version());
 //        options.setPlatformVersion("11.0");
         options.setApp(app.getAbsolutePath());
         options.setAppPackage("org.wikipedia.alpha");
@@ -44,7 +39,7 @@ public class LocalMobileDriver implements WebDriverProvider {
     }
     public static URL getAppiumServerUrl() {
         try {
-            return new URL(localURL);
+            return new URL(Credentials.configLocal.localURL());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

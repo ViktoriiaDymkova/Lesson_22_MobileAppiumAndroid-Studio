@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources("classpath:resources/config/androidStudio.properties")
 
-public interface LocalAndroidStudioConfig extends Config {
+public interface LocalConfig extends Config {
     @DefaultValue("android")
     String platformName();
 
