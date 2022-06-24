@@ -59,8 +59,8 @@ tasks.withType(Test) {
     }
 }
 
-task android(type: Test) {
+task android (type: Test) {
     useJUnitPlatform {
-        includeTags 'android'
+        includeTags 'local', 'browserstack'
     }
 }
