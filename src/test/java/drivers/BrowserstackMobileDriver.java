@@ -18,8 +18,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.merge(capabilities);
         // Set your access credentials // это компантный способ спрятать переменные в owner через Credentials
         mutableCapabilities.setCapability("username", Credentials.configBrowserstack.username());
+        mutableCapabilities.setCapability("access_key", Credentials.configBrowserstack.accessKey());
         mutableCapabilities.setCapability("app", Credentials.configBrowserstack.app());
-        mutableCapabilities.setCapability("access_key", Credentials.configBrowserstack.access_key());
 
         // Set URL of the application under test
 //        mutableCapabilities.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
@@ -31,7 +31,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
 
         // Set other BrowserStack capabilities
         mutableCapabilities.setCapability("project", "QA.GURU lesson 22");
-        mutableCapabilities.setCapability("build", "browserstack-build-1");
+        mutableCapabilities.setCapability("build", "browserstack-build-2");
         mutableCapabilities.setCapability("name", "selenide android test");
         return new RemoteWebDriver(getBrowserstackUrl(), mutableCapabilities);
     }

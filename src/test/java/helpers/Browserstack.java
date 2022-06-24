@@ -11,7 +11,7 @@ public class Browserstack {
     // это еще один способ спрятать переменные в owner через статик Стринги
     static BrowserStackConfig browserstackConfig = ConfigFactory.create(BrowserStackConfig.class);
     static String username = browserstackConfig.username();
-    static String access_key = browserstackConfig.access_key();
+    static String access_key = browserstackConfig.accessKey();
 
     public static String videoUrl(String sessionId) {
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);

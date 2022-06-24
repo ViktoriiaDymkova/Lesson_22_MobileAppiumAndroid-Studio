@@ -11,7 +11,8 @@ import static io.qameta.allure.Allure.step;
 
 public class SearchTests extends TestBase {
 
-    @Tag("android")
+    @Tag("local")
+    @Tag("browserstack")
     @Test
     void searchTest() {
         back();
