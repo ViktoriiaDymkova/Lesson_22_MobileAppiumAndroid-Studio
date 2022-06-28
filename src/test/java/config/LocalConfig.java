@@ -13,7 +13,8 @@ public interface LocalConfig extends Config {
     String device();
 
     @DefaultValue("11.0")
-    String os_version();
+    @Key("os_version")
+    String osVersion();
 
     @DefaultValue("http://localhost:4723/wd/hub")
     String localURL();

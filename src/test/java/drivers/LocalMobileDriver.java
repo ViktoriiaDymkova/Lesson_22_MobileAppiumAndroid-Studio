@@ -29,7 +29,7 @@ public class LocalMobileDriver implements WebDriverProvider {
         options.setPlatformName(Credentials.configLocal.platformName());
         options.setDeviceName(Credentials.configLocal.device());
 //        options.setDeviceName("Pixel 4 API 30");
-        options.setPlatformVersion(Credentials.configLocal.os_version());
+        options.setPlatformVersion(Credentials.configLocal.osVersion());
 //        options.setPlatformVersion("11.0");
         options.setApp(app.getAbsolutePath());
         options.setAppPackage("org.wikipedia.alpha");
