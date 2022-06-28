@@ -10,11 +10,11 @@ repositories {
 def allureVersion = "2.17.3",
     selenideVersion = "6.5.2",
     appiumVersion = "8.0.0",
-//appiumVersion = "7.6.0",
     restAssured = "4.5.1",
-    commonsIoVersion = "2.11.0",
     junitVersion = "5.8.2",
-    slf4jVersion = "1.7.32"
+    slf4jVersion = "1.7.32",
+    owserVesrion = "1.0.12",
+    commonsIoVersion = "2.11.0"
 
 allure {
     report {
@@ -36,10 +36,10 @@ dependencies {
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.appium:java-client:$appiumVersion",
             "io.rest-assured:rest-assured:$restAssured",
-            "commons-io:commons-io:$commonsIoVersion",
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "org.slf4j:slf4j-simple:$slf4jVersion",
-            "org.aeonbits.owner:owner:1.0.4"
+            "org.aeonbits.owner:owner:$owserVesrion",
+            "commons-io:commons-io:$commonsIoVersion"
     )
 }
 
@@ -57,11 +57,4 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
-}
-
-task android(type: Test) {
-    useJUnitPlatform {
-        includeTags 'android'
-    }
-
 }
