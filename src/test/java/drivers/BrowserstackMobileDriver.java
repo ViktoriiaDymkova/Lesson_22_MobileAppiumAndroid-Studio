@@ -16,13 +16,14 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
+        // это компантный способ спрятать переменные в owner через ConfigFactory
         BrowserStackConfig browserStackConfig = ConfigFactory.create(BrowserStackConfig.class);
 
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
-        // Set your access credentials // это компантный способ спрятать переменные в owner через Credentials
-        mutableCapabilities.setCapability("browserstack.username", browserStackConfig.username());
-        mutableCapabilities.setCapability("browserstack.access_key", browserStackConfig.accessKey());
+        // Set your access credentials // была ошибка в передаче ключей "browserstack.user и кей" а не как в проперти - username
+        mutableCapabilities.setCapability("browserstack.user", browserStackConfig.username());
+        mutableCapabilities.setCapability("browserstack.key", browserStackConfig.access_key());
         mutableCapabilities.setCapability("app", browserStackConfig.app());
 
         // Set URL of the application under test

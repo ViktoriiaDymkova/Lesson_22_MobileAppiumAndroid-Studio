@@ -9,9 +9,8 @@ public interface BrowserStackConfig extends Config {
     @DefaultValue("bsuser_zB7OhS")
     String username();
 
-    @Key("access_key")
     @DefaultValue("yjW2gs4QfhiTDpfJZgyk")
-    String accessKey();
+    String access_key();
 
     @DefaultValue("bs://ee714901a6bef9d1429d8afe111b9342ea5bd996\n")
     String app();
