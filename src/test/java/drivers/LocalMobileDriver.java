@@ -1,5 +1,6 @@
 package drivers;
 import com.codeborne.selenide.WebDriverProvider;
+import config.BrowserStackConfig;
 import config.Credentials;
 import config.LocalConfig;
 import io.appium.java_client.android.AndroidDriver;
@@ -21,6 +22,7 @@ public class LocalMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
+
         File app = getApp();
 
         UiAutomator2Options options = new UiAutomator2Options();

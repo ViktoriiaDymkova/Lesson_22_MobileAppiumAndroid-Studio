@@ -1,7 +1,10 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
+import config.BrowserStackConfig;
 import config.Credentials;
+import config.LocalConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -12,8 +15,10 @@ import java.net.URL;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
 
+
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
+
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
         // Set your access credentials // это компантный способ спрятать переменные в owner через Credentials
