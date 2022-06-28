@@ -9,15 +9,15 @@ import static java.lang.String.format;
 public class Browserstack {
 
     // это еще один способ спрятать переменные в owner через статик Стринги
-    static BrowserStackConfig browserstackConfig = ConfigFactory.create(BrowserStackConfig.class);
-    static String username = browserstackConfig.username();
-    static String access_key = browserstackConfig.accessKey();
+//    static BrowserStackConfig browserstackConfig = ConfigFactory.create(BrowserStackConfig.class);
+//    static String username = browserstackConfig.username();
+//    static String accessKey = browserstackConfig.accessKey();
 
     public static String videoUrl(String sessionId) {
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
-                .auth().basic(username, access_key) // тут я тоже тяну лог/пас из проперти тк каждую сессию ключ меняется
+                .auth().basic("bsuser_zB7OhS","yjW2gs4QfhiTDpfJZgyk") // тут я тоже тяну лог/пас из проперти тк каждую сессию ключ меняется
                 .log().all()
                 .when()
                 .get(url)
